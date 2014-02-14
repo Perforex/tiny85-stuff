@@ -1,5 +1,7 @@
 /*
- * Testing a Rotary Encoder on an Attiny85.
+ * Testing a Rotary Encoder on an Attiny85. 
+ * Change the duty cycle of a PWM wave. Note that the encoder logic
+ * is in the library <my85libs> 
  * 
  *                +----+
  * NC          1 -|    |- 8 NC

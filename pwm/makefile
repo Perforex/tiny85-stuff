@@ -5,7 +5,7 @@ PORT           = usb
 MCU_TARGET     = attiny85
 AVRDUDE_TARGET = attiny85
 OPTIMIZE       = -Os
-LL			   = /home/spb/avrsource/attiny85libs
+LL			   = ../attiny85libs
 DEFS		   = -I$(LL)/serial85dbg -I$(LL)/rotenc -I$(LL)/my85libs -L$(LL)/serial85dbg -L$(LL)/rotenc -L$(LL)/my85libs
 LIBS           = -l85dbg -lrotenc -lmy85
 

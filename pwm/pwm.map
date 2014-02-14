@@ -1,11 +1,7 @@
 Archive member included because of file (symbol)
 
-/home/spb/avrsource/attiny85libs/my85libs/libmy85.a(my85libs.o)
+../attiny85libs/my85libs/libmy85.a(my85libs.o)
                               pwm.o (initADC)
-/usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_mulhi3.o)
-                              pwm.o (__mulhi3)
-/usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_udivmodhi4.o)
-                              pwm.o (__udivmodhi4)
 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_exit.o)
                               /usr/lib/gcc/avr/4.7.2/../../../avr/lib/avr25/crttn85.o (exit)
 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_copy_data.o)
@@ -35,9 +31,9 @@ Linker script and memory map
 
 LOAD /usr/lib/gcc/avr/4.7.2/../../../avr/lib/avr25/crttn85.o
 LOAD pwm.o
-LOAD /home/spb/avrsource/attiny85libs/serial85dbg/lib85dbg.a
-LOAD /home/spb/avrsource/attiny85libs/rotenc/librotenc.a
-LOAD /home/spb/avrsource/attiny85libs/my85libs/libmy85.a
+LOAD ../attiny85libs/serial85dbg/lib85dbg.a
+LOAD ../attiny85libs/rotenc/librotenc.a
+LOAD ../attiny85libs/my85libs/libmy85.a
 LOAD /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a
 LOAD /usr/lib/gcc/avr/4.7.2/../../../avr/lib/avr25/libc.a
 LOAD /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a
@@ -132,7 +128,7 @@ LOAD /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x0000000000000000      0x1e4
+.text           0x0000000000000000      0x14a
  *(.vectors)
  .vectors       0x0000000000000000       0x1e /usr/lib/gcc/avr/4.7.2/../../../avr/lib/avr25/crttn85.o
                 0x0000000000000000                __vectors
@@ -204,82 +200,56 @@ LOAD /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a
                 0x0000000000000054                __vector_14
                 0x0000000000000054                __vector_10
  .text          0x0000000000000056        0x0 pwm.o
- .text          0x0000000000000056       0xca /home/spb/avrsource/attiny85libs/my85libs/libmy85.a(my85libs.o)
+ .text          0x0000000000000056       0xca ../attiny85libs/my85libs/libmy85.a(my85libs.o)
                 0x0000000000000056                initADC
                 0x0000000000000074                readADC
                 0x000000000000007e                delay_ms
                 0x000000000000009c                encoder
- .text          0x0000000000000120        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_mulhi3.o)
- .text          0x0000000000000120        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_udivmodhi4.o)
  .text          0x0000000000000120        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_exit.o)
  .text          0x0000000000000120        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_copy_data.o)
  .text          0x0000000000000120        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_clear_bss.o)
                 0x0000000000000120                . = ALIGN (0x2)
  *(.text.*)
- .text.startup  0x0000000000000120       0x74 pwm.o
+ .text.startup  0x0000000000000120       0x26 pwm.o
                 0x0000000000000120                main
  .text.libgcc.mul
-                0x0000000000000194       0x24 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_mulhi3.o)
-                0x0000000000000194                __mulhi3
+                0x0000000000000146        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_exit.o)
  .text.libgcc.div
-                0x00000000000001b8        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_mulhi3.o)
- .text.libgcc   0x00000000000001b8        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_mulhi3.o)
+                0x0000000000000146        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_exit.o)
+ .text.libgcc   0x0000000000000146        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_exit.o)
  .text.libgcc.prologue
-                0x00000000000001b8        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_mulhi3.o)
+                0x0000000000000146        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_exit.o)
  .text.libgcc.builtins
-                0x00000000000001b8        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_mulhi3.o)
+                0x0000000000000146        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_exit.o)
  .text.libgcc.fmul
-                0x00000000000001b8        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_mulhi3.o)
+                0x0000000000000146        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_exit.o)
  .text.libgcc.mul
-                0x00000000000001b8        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_udivmodhi4.o)
+                0x0000000000000146        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_copy_data.o)
  .text.libgcc.div
-                0x00000000000001b8       0x28 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_udivmodhi4.o)
-                0x00000000000001b8                __udivmodhi4
- .text.libgcc   0x00000000000001e0        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_udivmodhi4.o)
+                0x0000000000000146        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000000000000146        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_copy_data.o)
  .text.libgcc.prologue
-                0x00000000000001e0        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_udivmodhi4.o)
+                0x0000000000000146        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_copy_data.o)
  .text.libgcc.builtins
-                0x00000000000001e0        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_udivmodhi4.o)
+                0x0000000000000146        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_copy_data.o)
  .text.libgcc.fmul
-                0x00000000000001e0        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_udivmodhi4.o)
+                0x0000000000000146        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_copy_data.o)
  .text.libgcc.mul
-                0x00000000000001e0        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_exit.o)
+                0x0000000000000146        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_clear_bss.o)
  .text.libgcc.div
-                0x00000000000001e0        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_exit.o)
- .text.libgcc   0x00000000000001e0        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_exit.o)
+                0x0000000000000146        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_clear_bss.o)
+ .text.libgcc   0x0000000000000146        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_clear_bss.o)
  .text.libgcc.prologue
-                0x00000000000001e0        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_exit.o)
+                0x0000000000000146        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_clear_bss.o)
  .text.libgcc.builtins
-                0x00000000000001e0        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_exit.o)
+                0x0000000000000146        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_clear_bss.o)
  .text.libgcc.fmul
-                0x00000000000001e0        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_exit.o)
- .text.libgcc.mul
-                0x00000000000001e0        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_copy_data.o)
- .text.libgcc.div
-                0x00000000000001e0        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_copy_data.o)
- .text.libgcc   0x00000000000001e0        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_copy_data.o)
- .text.libgcc.prologue
-                0x00000000000001e0        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_copy_data.o)
- .text.libgcc.builtins
-                0x00000000000001e0        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_copy_data.o)
- .text.libgcc.fmul
-                0x00000000000001e0        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_copy_data.o)
- .text.libgcc.mul
-                0x00000000000001e0        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_clear_bss.o)
- .text.libgcc.div
-                0x00000000000001e0        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_clear_bss.o)
- .text.libgcc   0x00000000000001e0        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_clear_bss.o)
- .text.libgcc.prologue
-                0x00000000000001e0        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_clear_bss.o)
- .text.libgcc.builtins
-                0x00000000000001e0        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_clear_bss.o)
- .text.libgcc.fmul
-                0x00000000000001e0        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_clear_bss.o)
-                0x00000000000001e0                . = ALIGN (0x2)
+                0x0000000000000146        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_clear_bss.o)
+                0x0000000000000146                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000000000001e0        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_exit.o)
-                0x00000000000001e0                exit
-                0x00000000000001e0                _exit
+ .fini9         0x0000000000000146        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_exit.o)
+                0x0000000000000146                exit
+                0x0000000000000146                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -298,20 +268,18 @@ LOAD /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000000000001e0        0x4 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_exit.o)
+ .fini0         0x0000000000000146        0x4 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_exit.o)
  *(.fini0)
-                0x00000000000001e4                _etext = .
+                0x000000000000014a                _etext = .
 
-.data           0x0000000000800060        0x6 load address 0x00000000000001e4
+.data           0x0000000000800060        0x6 load address 0x000000000000014a
                 0x0000000000800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/4.7.2/../../../avr/lib/avr25/crttn85.o
  .data          0x0000000000800060        0x4 pwm.o
                 0x0000000000800060                actualMax
                 0x0000000000800062                actualMin
- .data          0x0000000000800064        0x1 /home/spb/avrsource/attiny85libs/my85libs/libmy85.a(my85libs.o)
- .data          0x0000000000800065        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_mulhi3.o)
- .data          0x0000000000800065        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_udivmodhi4.o)
+ .data          0x0000000000800064        0x1 ../attiny85libs/my85libs/libmy85.a(my85libs.o)
  .data          0x0000000000800065        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_exit.o)
  .data          0x0000000000800065        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_copy_data.o)
  .data          0x0000000000800065        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_clear_bss.o)
@@ -329,9 +297,7 @@ LOAD /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a
  *(.bss)
  .bss           0x0000000000800066        0x0 /usr/lib/gcc/avr/4.7.2/../../../avr/lib/avr25/crttn85.o
  .bss           0x0000000000800066        0x0 pwm.o
- .bss           0x0000000000800066        0x3 /home/spb/avrsource/attiny85libs/my85libs/libmy85.a(my85libs.o)
- .bss           0x0000000000800069        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_mulhi3.o)
- .bss           0x0000000000800069        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_udivmodhi4.o)
+ .bss           0x0000000000800066        0x3 ../attiny85libs/my85libs/libmy85.a(my85libs.o)
  .bss           0x0000000000800069        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_exit.o)
  .bss           0x0000000000800069        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_copy_data.o)
  .bss           0x0000000000800069        0x0 /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a(_clear_bss.o)
@@ -342,8 +308,8 @@ LOAD /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a
                 0x000000000080006b                actualDif
                 0x000000000080006d                actualADC
                 0x000000000080006f                PROVIDE (__bss_end, .)
-                0x00000000000001e4                __data_load_start = LOADADDR (.data)
-                0x00000000000001ea                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000000000000014a                __data_load_start = LOADADDR (.data)
+                0x0000000000000150                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x000000000080006f        0x0
                 0x000000000080006f                PROVIDE (__noinit_start, .)
@@ -368,11 +334,11 @@ LOAD /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a
 .signature
  *(.signature*)
 
-.stab           0x0000000000000000      0xb1c
+.stab           0x0000000000000000      0xaec
  *(.stab)
  .stab          0x0000000000000000      0x6cc /usr/lib/gcc/avr/4.7.2/../../../avr/lib/avr25/crttn85.o
- .stab          0x00000000000006cc      0x450 pwm.o
-                                        0x45c (size before relaxing)
+ .stab          0x00000000000006cc      0x420 pwm.o
+                                        0x42c (size before relaxing)
 
 .stabstr        0x0000000000000000      0x932
  *(.stabstr)
@@ -394,7 +360,7 @@ LOAD /usr/lib/gcc/avr/4.7.2/avr25/libgcc.a
  *(.comment)
  .comment       0x0000000000000000       0x11 pwm.o
                                          0x12 (size before relaxing)
- .comment       0x0000000000000000       0x12 /home/spb/avrsource/attiny85libs/my85libs/libmy85.a(my85libs.o)
+ .comment       0x0000000000000000       0x12 ../attiny85libs/my85libs/libmy85.a(my85libs.o)
 
 .debug
  *(.debug)

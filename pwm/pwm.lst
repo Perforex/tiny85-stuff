@@ -3,17 +3,17 @@ pwm.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         000001e4  00000000  00000000  00000094  2**1
+  0 .text         0000014a  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000006  00800060  000001e4  00000278  2**0
+  1 .data         00000006  00800060  0000014a  000001de  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000009  00800066  00800066  0000027e  2**0
+  2 .bss          00000009  00800066  00800066  000001e4  2**0
                   ALLOC
-  3 .stab         00000b1c  00000000  00000000  00000280  2**2
+  3 .stab         00000aec  00000000  00000000  000001e4  2**2
                   CONTENTS, READONLY, DEBUGGING
-  4 .stabstr      00000932  00000000  00000000  00000d9c  2**0
+  4 .stabstr      00000932  00000000  00000000  00000cd0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .comment      00000011  00000000  00000000  000016ce  2**0
+  5 .comment      00000011  00000000  00000000  00001602  2**0
                   CONTENTS, READONLY
 
 Disassembly of section .text:
@@ -47,7 +47,7 @@ Disassembly of section .text:
   2a:	10 e0       	ldi	r17, 0x00	; 0
   2c:	a0 e6       	ldi	r26, 0x60	; 96
   2e:	b0 e0       	ldi	r27, 0x00	; 0
-  30:	e4 ee       	ldi	r30, 0xE4	; 228
+  30:	ea e4       	ldi	r30, 0x4A	; 74
   32:	f1 e0       	ldi	r31, 0x01	; 1
   34:	02 c0       	rjmp	.+4      	; 0x3a <__do_copy_data+0x10>
   36:	05 90       	lpm	r0, Z+
@@ -70,7 +70,7 @@ Disassembly of section .text:
   4c:	b1 07       	cpc	r27, r17
   4e:	e1 f7       	brne	.-8      	; 0x48 <.do_clear_bss_loop>
   50:	67 d0       	rcall	.+206    	; 0x120 <main>
-  52:	c6 c0       	rjmp	.+396    	; 0x1e0 <_exit>
+  52:	79 c0       	rjmp	.+242    	; 0x146 <_exit>
 
 00000054 <__bad_interrupt>:
   54:	d5 cf       	rjmp	.-86     	; 0x0 <__vectors>
@@ -204,95 +204,10 @@ int main()
 
 	sei(); 
  142:	78 94       	sei
+ 144:	ff cf       	rjmp	.-2      	; 0x144 <main+0x24>
 
-	actualDif = actualMax - actualMin;
- 144:	80 91 60 00 	lds	r24, 0x0060
- 148:	90 91 61 00 	lds	r25, 0x0061
- 14c:	20 91 62 00 	lds	r18, 0x0062
- 150:	30 91 63 00 	lds	r19, 0x0063
- 154:	82 1b       	sub	r24, r18
- 156:	93 0b       	sbc	r25, r19
- 158:	90 93 6c 00 	sts	0x006C, r25
- 15c:	80 93 6b 00 	sts	0x006B, r24
+00000146 <_exit>:
+ 146:	f8 94       	cli
 
- while (1) 
- {
-	 actualADC = readADC();
- 160:	89 df       	rcall	.-238    	; 0x74 <readADC>
- 162:	90 e0       	ldi	r25, 0x00	; 0
- 164:	90 93 6e 00 	sts	0x006E, r25
- 168:	80 93 6d 00 	sts	0x006D, r24
-	 scaledADC = (actualDif*(actualADC-actualMin))/actualDif;
- 16c:	20 91 6b 00 	lds	r18, 0x006B
- 170:	30 91 6c 00 	lds	r19, 0x006C
- 174:	40 91 62 00 	lds	r20, 0x0062
- 178:	50 91 63 00 	lds	r21, 0x0063
- 17c:	84 1b       	sub	r24, r20
- 17e:	95 0b       	sbc	r25, r21
- 180:	b9 01       	movw	r22, r18
- 182:	08 d0       	rcall	.+16     	; 0x194 <__mulhi3>
- 184:	b9 01       	movw	r22, r18
- 186:	18 d0       	rcall	.+48     	; 0x1b8 <__udivmodhi4>
- 188:	60 93 69 00 	sts	0x0069, r22
- 18c:	70 93 6a 00 	sts	0x006A, r23
-	 OCR0A = scaledADC;
- 190:	69 bd       	out	0x29, r22	; 41
- 192:	e6 cf       	rjmp	.-52     	; 0x160 <main+0x40>
-
-00000194 <__mulhi3>:
- 194:	55 27       	eor	r21, r21
- 196:	00 24       	eor	r0, r0
-
-00000198 <__mulhi3_loop>:
- 198:	80 ff       	sbrs	r24, 0
- 19a:	02 c0       	rjmp	.+4      	; 0x1a0 <__mulhi3_skip1>
- 19c:	06 0e       	add	r0, r22
- 19e:	57 1f       	adc	r21, r23
-
-000001a0 <__mulhi3_skip1>:
- 1a0:	66 0f       	add	r22, r22
- 1a2:	77 1f       	adc	r23, r23
- 1a4:	61 15       	cp	r22, r1
- 1a6:	71 05       	cpc	r23, r1
- 1a8:	21 f0       	breq	.+8      	; 0x1b2 <__mulhi3_exit>
- 1aa:	96 95       	lsr	r25
- 1ac:	87 95       	ror	r24
- 1ae:	00 97       	sbiw	r24, 0x00	; 0
- 1b0:	99 f7       	brne	.-26     	; 0x198 <__mulhi3_loop>
-
-000001b2 <__mulhi3_exit>:
- 1b2:	95 2f       	mov	r25, r21
- 1b4:	80 2d       	mov	r24, r0
- 1b6:	08 95       	ret
-
-000001b8 <__udivmodhi4>:
- 1b8:	aa 1b       	sub	r26, r26
- 1ba:	bb 1b       	sub	r27, r27
- 1bc:	51 e1       	ldi	r21, 0x11	; 17
- 1be:	07 c0       	rjmp	.+14     	; 0x1ce <__udivmodhi4_ep>
-
-000001c0 <__udivmodhi4_loop>:
- 1c0:	aa 1f       	adc	r26, r26
- 1c2:	bb 1f       	adc	r27, r27
- 1c4:	a6 17       	cp	r26, r22
- 1c6:	b7 07       	cpc	r27, r23
- 1c8:	10 f0       	brcs	.+4      	; 0x1ce <__udivmodhi4_ep>
- 1ca:	a6 1b       	sub	r26, r22
- 1cc:	b7 0b       	sbc	r27, r23
-
-000001ce <__udivmodhi4_ep>:
- 1ce:	88 1f       	adc	r24, r24
- 1d0:	99 1f       	adc	r25, r25
- 1d2:	5a 95       	dec	r21
- 1d4:	a9 f7       	brne	.-22     	; 0x1c0 <__udivmodhi4_loop>
- 1d6:	80 95       	com	r24
- 1d8:	90 95       	com	r25
- 1da:	bc 01       	movw	r22, r24
- 1dc:	cd 01       	movw	r24, r26
- 1de:	08 95       	ret
-
-000001e0 <_exit>:
- 1e0:	f8 94       	cli
-
-000001e2 <__stop_program>:
- 1e2:	ff cf       	rjmp	.-2      	; 0x1e2 <__stop_program>
+00000148 <__stop_program>:
+ 148:	ff cf       	rjmp	.-2      	; 0x148 <__stop_program>

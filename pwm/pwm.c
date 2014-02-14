@@ -33,12 +33,7 @@ int main()
 
 	sei(); 
 
-	actualDif = actualMax - actualMin;
-
  while (1) 
  {
-	 actualADC = readADC();
-	 scaledADC = (actualDif*(actualADC-actualMin))/actualDif;
-	 OCR0A = scaledADC;
   }	
  }
