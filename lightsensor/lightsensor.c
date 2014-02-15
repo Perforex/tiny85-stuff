@@ -1,6 +1,11 @@
 /*
  * lightsensor.c
  * 
+ * Detect if it's dark and if so flash a light every few seconds. Designed 
+ * to test using the ADC to read a voltage on a pin and could be used as 
+ * a fake alarm. The input from the photo resistor is on PB2 and the LED
+ * (red in this case) is on PB3.
+ * 
  * Copyright 2013 spb <spb@spb-desktop>
  * 
  * This program is free software; you can redistribute it and/or modify
