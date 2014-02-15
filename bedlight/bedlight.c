@@ -1,6 +1,9 @@
 /*
  * bedlight.c
  * 
+ * Turn on a light when it becomes dark but allow it to be switched on or
+ * off manually regardless of the state set by it being dark.
+ * 
  * Copyright 2013 spb <spb@spb-desktop>
  * 
  * This program is free software; you can redistribute it and/or modify
